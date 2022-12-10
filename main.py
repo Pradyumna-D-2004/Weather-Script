@@ -1,8 +1,11 @@
+from dotenv import load_dotenv
 import requests
 import os
 
+load_dotenv()
 
-url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Chennai?unitGroup=metric&key=H34HHM9SNNT85Y7EW92AZXW7T&contentType=json"
+key = os.environ.get('KEY')
+url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Chennai?unitGroup=metric&key={key}&contentType=json"
 
 response = requests.get(url).json()
 
